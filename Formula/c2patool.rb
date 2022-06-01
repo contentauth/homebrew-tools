@@ -5,6 +5,11 @@ class C2patool < Formula
   sha256 "08501b0a3899343bae280c2e2a0e663cf79649dd245e96d18158009552a84438"
   license any_of: ["Apache-2.0", "MIT"]
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   depends_on "openssl@3" => :build
   depends_on "rust" => :build
 
@@ -20,6 +25,7 @@ class C2patool < Formula
   end
 
   test do
+    # manifest read test
     resource("CA").stage do
       assert_match "contentauth:urn:uuid:c05a8614-cf57-4fc5-8588-09562d77765b", shell_output("#{bin}/c2patool CA.jpg").strip
     end
