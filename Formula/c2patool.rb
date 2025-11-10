@@ -20,7 +20,7 @@ class C2patool < Formula
   end
 
   def install
-    cd "c2patool" do
+    cd "cli" do
       system "cargo", "install", *std_cargo_args
     end
   end
