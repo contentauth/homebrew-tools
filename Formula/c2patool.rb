@@ -1,8 +1,8 @@
 class C2patool < Formula
   desc "Tool for displaying and creating C2PA manifests"
   homepage "https://opensource.contentauthenticity.org/"
-  url "https://github.com/contentauth/c2pa-rs/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "08501b0a3899343bae280c2e2a0e663cf79649dd245e96d18158009552a84438"
+  url "https://github.com/contentauth/c2pa-rs/archive/refs/tags/c2patool-v0.26.1.tar.gz"
+  sha256 "f63ef60d750115bd8adb683a06a7d43a5c7ff540ceb8eb4469ef30fb500f3944"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
@@ -14,7 +14,8 @@ class C2patool < Formula
   depends_on "rust" => :build
 
   resource "CA" do
-    url "https://github.com/contentauth/c2pa-rs/raw/ce6108f7665b79c56a5b260e6c49155e27a99cdb/sdk/tests/fixtures/CA.jpg"
+    url "https://github.com/contentauth/c2pa-rs/raw/ce6108f7665b79c56a5b260e6c49155e27a99cdb/" \
+        "sdk/tests/fixtures/CA.jpg"
     sha256 "ae0a1bd25fa89c9e824641d26dbd5e60e91b363e7f800fe81edec1baa20cb70f"
   end
 
@@ -27,7 +28,8 @@ class C2patool < Formula
   test do
     # manifest read test
     resource("CA").stage do
-      assert_match "contentauth:urn:uuid:c05a8614-cf57-4fc5-8588-09562d77765b", shell_output("#{bin}/c2patool CA.jpg").strip
+      assert_match "contentauth:urn:uuid:c05a8614-cf57-4fc5-8588-09562d77765b",
+                   shell_output("#{bin}/c2patool CA.jpg").strip
     end
   end
 end
