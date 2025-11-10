@@ -16,7 +16,7 @@ brew tap contentauth/tools
 
 ### c2patool
 
-[c2patool](https://github.com/contentauth/c2pa-rs/tree/main/c2patool) is a command line tool for displaying and adding C2PA manifests. After enabling this tap, you can run the following to install:
+[c2patool](https://github.com/contentauth/c2pa-rs/tree/main/cli) is a command line tool for displaying and adding C2PA manifests. After enabling this tap, you can run the following to install:
 
 ```shell
 brew install c2patool
